@@ -12,11 +12,11 @@ if len(word) >= 6:
 
 letter = str(input("Enter a single character: "))
 if len(letter) == 0:
-        print("Error: Character must be a single character.")
-        exit()
+    print("Error: Character must be a single character.")
+    exit()
 if len(letter) >= 2:
-        print("Error: Character must be a single character.")
-        exit()
+    print("Error: Character must be a single character.")
+    exit()
 
 print("Searching for " + letter + " in " + word)
 count = int(0)
@@ -57,4 +57,3 @@ else:
                     else:
                         if count >= int(6):
                             print("Error.")
-
