@@ -2,11 +2,11 @@
 
 __author__ = str(730560370)
 
-word: str = "python"   # the code is adjusted so any word of any length can be used
+word: str = "python"                           # the code is adjusted so any word of any length can be used
 guess = str(input(f"What is your {len(word)}-letter guess? "))
 
 while len(guess) != len(word):
-    guess = str(input(f"That was not {len(word)} letters! Try again: "))   # makes sure the length of the guess matches the length of the word    
+    guess = str(input(f"That was not {len(word)} letters! Try again: "))   # so the length of the guess matches the length of the word    
 
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
@@ -30,12 +30,12 @@ while index < len(word):                        # tests if the given letter is i
             if guess[index] == word[alternate_indeces]:   
                 letter_contained = True
             alternate_indeces += 1
-        if letter_contained:                    # prints if the results of the loop are True/if the given letter is contained in the word but not in the correct position
+        if letter_contained:                    # prints if loop is True/if the given letter is contained in the word but not in the correct position
             final_result += YELLOW_BOX   
         if not letter_contained:                # if the letter is not contained in the word at all
             final_result += WHITE_BOX
-    letter_contained = False                    # resets the bool, allows the nested loop to run again on the next index
-    index += 1                                  # avoids infinite loop
+    letter_contained = False                    # resets the bool, allows the nested loop to run again on the next index if needed
+    index += 1                                  # avoids infinite outer loop
 
 if (int(correct_guesses) == len(word)):
     print(final_result + "\nWoo! You got it!") 
