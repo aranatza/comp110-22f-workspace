@@ -18,8 +18,8 @@ print(rolls)
 i: int = 0
 sum: int = 0
 while i < len(rolls):
-    sum += rolls[i]
-    i += 1
+    sum = sum + rolls[i]
+    i = i + 1
 print(f"Total score: {sum}")
 
 # rolls: list[int] = list()
