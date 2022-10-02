@@ -35,17 +35,13 @@ def main() -> None:
     elif verdict == 2:
         print(f"You got Wilson Library! {BOOKS_EMOJI} {BOOKS_EMOJI} {BOOKS_EMOJI} You're probably poised, refined, and love to study or read!")
     elif verdict == 3: 
-        print(f"You got Chase Dining Hall! {BURGER_EMOJI} {BURGER_EMOJI} {BURGER_EMOJI} You're chill, probably southern, and your love language is spending quality time with someone else.")
+        print(f"You got Chase Dining Hall! {BURGER_EMOJI} {BURGER_EMOJI} {BURGER_EMOJI} You're chill, probably southern, and your love language is spending quality time with others.")
     elif verdict == 4:
         print(f"You got Kenan Stadium! {RUN_EMOJI} {RUN_EMOJI} {RUN_EMOJI} You're healthy, active, and probably a gym bro. Gotta get those gains!")
     elif verdict == 5:
         print(f"You got Ackland Art Museum! {ART_EMOJI} {ART_EMOJI} {ART_EMOJI} You're creative, independent, and quirky. Maybe one day you'll be a celebrity artist!")
-    points += 1
-    play_again = str(input(f"\nYou've only done this quiz {points} time(s).\nWant to play again? Just type 'yes' for a redo!\n"))
-    if play_again == "yes" or play_again == "Yes" or play_again == "YES":
-        main()
-    else:
-        return
+    play_again()
+    return
             
 
 def greet() -> None:
@@ -56,8 +52,10 @@ def greet() -> None:
     return
 
 
-def correctness(answer: int) -> int:
+def correctness(i: int, answer: int) -> int:
     """A function to make sure the user only enters in a single number for their answer."""
+    global points
+    points = i + 1
     i: int = 0
     while (answer < 1 or answer > 5) and i < 5:
         answer = int(input("Oops! Be sure to enter the number correlated with your answer choice. Try again: "))
@@ -71,57 +69,64 @@ def correctness(answer: int) -> int:
 
 def question_1() -> int:
     """Question 1."""
+    global points
     print("==========\nQuestion 1:\nWhich of the following is your favorite comfort activity?\nPlease respond with the number that correlates with your answer\n(1) Partying with friends\n(2) Reading a good book\n(3) Cooking healthy meals\n(4) Going for a run\n(5) Painting/Drawing")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
 def question_2() -> int:
     """Question 2."""
+    global points
     print("==========\nQuestion 2:\nChoose a dessert:\nPlease respond with the number that correlates with your answer\n(1) Birthday cake\n(2) Tiramisu\n(3) Pudding\n(4) Peanut butter protein balls\n(5) Rolled ice cream")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
 def question_3() -> int:
     """Question 3."""
+    global points
     print("==========\nQuestion 3:\nChoose your best strength:\nPlease respond with the number that correlates with your answer\n(1) Being social\n(2) Being prepared\n(3) Making good choices\n(4) Staying active\n(5) Being creative")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
 def question_4() -> int:
     """Question 4."""
+    global points
     print("==========\nQuestion 4:\nChoose a song:\nPlease respond with the number that correlates with your answer\n(1) Shots - LMFAO, Lil Jon\n(2) Nocturne Op. 9 No. 2 - Chopin\n(3) You Belong With Me - Taylor Swift\n(4) Jump Around - House of Pain\n(5) Hard to Believe - Wallows")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
 def question_5() -> int:
     """Question 5."""
+    global points
     print("==========\nQuestion 5:\nPick a color:\nPlease respond with the number that correlates with your answer\n(1) Dark Red\n(2) Forest Green\n(3) Yellow\n(4) Sky Blue\n(5) Orange")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
 def question_6() -> int:
     """Question 6."""
+    global points
     print("==========\nQuestion 6:\nChoose a bagel:\nPlease respond with the number that correlates with your answer\n(1) Everything\n(2) Sesame\n(3) Plain\n(4) Wheat\n(5) Rainbow")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
 def question_7() -> int:
     """Question 7."""
+    global points
     print("==========\nQuestion 7:\nChoose a field:\nPlease respond with the number that correlates with your answer\n(1) Business\n(2) English\n(3) Communications\n(4) Health Education\n(5) Art ")
     answer: int = int(input(""))
-    correctness(answer)
+    correctness(points, answer)
     return answer
 
 
@@ -219,6 +224,16 @@ def tracker(a: int, b: int, c: int, d: int, e: int, f: int, g: int) -> int:
         return 4
     elif ackland_art_museum >= frat_court and ackland_art_museum >= wilson_library and ackland_art_museum >= chase_dining_hall and ackland_art_museum >= kenan_stadium: 
         return 5
+
+
+def play_again() -> None:
+    """Repeats the main function if the user wants to play again."""
+    global points
+    again = str(input(f"\nYou've answered {points} questions from this quiz.\nWant to play again? Just type 'yes' for a redo!\n"))
+    if again == "yes" or again == "Yes" or again == "YES":
+        main()
+    else:
+        return
 
 
 if __name__ == "__main__":
