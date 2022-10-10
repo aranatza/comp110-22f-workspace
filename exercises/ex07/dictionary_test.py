@@ -1,6 +1,6 @@
 """Ex07 test file."""
 
-__author__ = str("730560370")
+__author__ = "730560370"
 
 import pytest
 from dictionary import invert, favorite_color, count
@@ -46,7 +46,7 @@ def test_favorite_colors_02() -> None:
 def test_favorite_colors_03() -> None:
     """Edge case of favorite_colors."""
     sample: dict[str, str] = {}
-    assert favorite_color(sample) == {}
+    assert favorite_color(sample) == ""
 
 
 def test_count_01() -> None:

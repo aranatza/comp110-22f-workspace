@@ -1,6 +1,6 @@
 """Ex07."""
 
-__author__ = str("730560370")
+__author__ = "730560370"
 
 
 def invert(original: dict[str, str]) -> dict[str, str]:
@@ -22,7 +22,7 @@ def favorite_color(colors: dict[str, str]) -> str:
         if colors[key] not in tracker:
             tracker[colors[key]] = 1
     if tracker == {}:
-        return {}
+        return ""
     most_popular_int: int = 0
     most_popular_str: str = ""
     for key in tracker:
